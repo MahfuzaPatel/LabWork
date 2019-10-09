@@ -1,12 +1,12 @@
 <?php
-iclude connect.php;
+include 'connect.php';
 
-$sql = SELECT ID, firstname, surname, email FROM users";
+$sql = "SELECT ID, firstname, lastname, email FROM users";
 $result = $mysqli->query ($sql);
 if ($result){
 if ($result->num_rows > 0) {
                                 echo "<table>";
-                                echo "<tr>"
+                                echo "<tr>";
                                 echo "<th>ID</th>";
                                 echo "<th>Firstname</th>";
                                 echo "<th>Surname</th>";
@@ -18,8 +18,9 @@ if ($result->num_rows > 0) {
           echo "<tr>";
           echo "<td>".$row['ID']."</td>";
           echo "<td>".$row['firstname']."</td>";
-          echo "<td>".$row['surname']."</td>";
+          echo "<td>".$row['lastname']."</td>";
           echo "<td>".$row['email']."</td>";
+          echo '<td><a href="edit.php?id='.$row["ID"].'">Edit</a></td>';
           echo "</tr>";
       }
       echo "</table>";
